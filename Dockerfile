@@ -3,6 +3,15 @@ FROM alpine
 ARG AVR8_TOOLCHAIN_VERSION=3.5.4.1709
 ARG ATTINY_DFP_VERSION=1.3.172
 ARG ATMEGA_DFP_VERSION=1.2.209
+ARG VCS_URL=https://github.com/kesor/avr-toolchain-docker
+ARG VCS_REF
+ARG BUILD_DATE
+
+LABEL org.label-schema.vcs-url=$VCS_URL \
+      org.label-schema.vcs-ref=$VCS_REF \
+      org.label-schema.build-date=$BUILD_DATE \
+      org.label-schema.name="AVR Toolchain" \
+      org.label-schema.description="Atmel AVR toolchain in a Docker container"
 
 # https://www.microchip.com/avr-support/avr-and-arm-toolchains-(c-compilers)
 ENV AVR8_TOOLCHAIN_VERSION $AVR8_TOOLCHAIN_VERSION
@@ -26,4 +35,3 @@ RUN echo "Downloading ATmega DFP v${ATMEGA_DFP_VERSION}" 1>&2 \
     && mkdir -p Atmel/ATmega_DFP \
     && unzip -q -d Atmel/ATmega_DFP Atmel.ATmega_DFP.*.atpack \
     && rm Atmel.ATmega_DFP.*.atpack
-
