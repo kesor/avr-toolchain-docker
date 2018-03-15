@@ -38,3 +38,5 @@ RUN echo "Downloading ATmega DFP v${ATMEGA_DFP_VERSION}" 1>&2 \
     && unzip -q -d Atmel/ATmega_DFP Atmel.ATmega_DFP.*.atpack \
     && rm Atmel.ATmega_DFP.*.atpack \
     && rm -rf Atmel/ATmega_DFP/simulator Atmel/ATmega_DFP/edc
+
+ENV PATH=/avr8-gnu-toolchain-linux_x86_64/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
